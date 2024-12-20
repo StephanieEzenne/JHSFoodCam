@@ -1,12 +1,12 @@
 from getpass import getpass
 from instagrapi import Client
 
-def ask_for_instagram_credentials():
+def ask_for_instagram_credentials() -> tuple[str, str]:
     user_name = input("Please provide the Account user name: ")
     password = getpass(prompt="... and the associated password: ")
     return user_name, password
 
-def get_instagram_client(user: str, passwd: str):
+def get_instagram_client(user: str, passwd: str) -> Client:
     cli = Client()
     cli.login(username=user, password=passwd)
     print("Login Successful!")
